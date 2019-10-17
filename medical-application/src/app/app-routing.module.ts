@@ -4,6 +4,8 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {SalesInvoiceComponent} from './sales-invoice/sales-invoice.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   {
@@ -17,6 +19,8 @@ const routes: Routes = [
 },
 {
   path:'dashboard',component:DashboardComponent
+},{
+  path:'dashboard/invoice',component:SalesInvoiceComponent
 }
 ];
 

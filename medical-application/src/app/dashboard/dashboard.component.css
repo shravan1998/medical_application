@@ -1,6 +1,6 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+.wrapper{
+    display: flex;
+    position: relative;
 }
 
 p {
@@ -23,7 +23,7 @@ a, a:hover, a:focus {
     color: #fff;
     transition: all 0.3s;
     width:20%;
-    height: 800px;
+    height: 1000px;
     
 }
 
