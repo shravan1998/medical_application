@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SalesInvoiceComponent } from './sales-invoice/sales-invoice.component';
+import { DebitNoteComponent } from './debit-note/debit-note.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SalesInvoiceComponent } from './sales-invoice/sales-invoice.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    SalesInvoiceComponent
+    SalesInvoiceComponent,
+    DebitNoteComponent
   ],
   imports: [
     BrowserModule,
