@@ -15,7 +15,7 @@
             Login/SignUp
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/login">Login</a>
+            <a class="dropdown-item" (click)="auth.login()" *ngIf="!auth.loggedIn">Login</a>
             <a class="dropdown-item" routerLink="/register">Sign Up</a>
             </div>
         </li>

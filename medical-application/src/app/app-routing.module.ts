@@ -7,6 +7,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {SalesInvoiceComponent} from './sales-invoice/sales-invoice.component';
 import {DebitNoteComponent} from './debit-note/debit-note.component';
 import {ItemBatchComponent} from './item-batch/item-batch.component';
+import {PurchaseComponent} from './purchase/purchase.component';
 import { from } from 'rxjs';
 
 const routes: Routes = [
@@ -28,6 +29,9 @@ const routes: Routes = [
 },
 {
   path:'dashboard/item_batch',component:ItemBatchComponent
+},
+{
+  path:'dashboard/purchase',component:PurchaseComponent
 }
 
 ];

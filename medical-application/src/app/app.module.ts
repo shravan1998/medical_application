@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SalesInvoiceComponent } from './sales-invoice/sales-invoice.component';
 import { DebitNoteComponent } from './debit-note/debit-note.component';
 import { ItemBatchComponent } from './item-batch/item-batch.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ItemBatchComponent } from './item-batch/item-batch.component';
     DashboardComponent,
     SalesInvoiceComponent,
     DebitNoteComponent,
-    ItemBatchComponent
+    ItemBatchComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
