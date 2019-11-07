@@ -23,7 +23,7 @@ export class SalesInvoiceComponent implements OnInit {
   doctorid:String;
   customerid:String;
   payment:String;
-
+  netamount:Number;
   
 
   constructor(private invoiceservice:InvoiceService) { }
