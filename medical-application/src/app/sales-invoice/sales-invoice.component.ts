@@ -24,6 +24,7 @@ export class SalesInvoiceComponent implements OnInit {
   customerid:String;
   payment:String;
   netamount:Number;
+  public details;
   
 
   constructor(private invoiceservice:InvoiceService) { }
@@ -33,7 +34,8 @@ export class SalesInvoiceComponent implements OnInit {
 
   }
   onSave(item){
-
+    this.invoiceservice.getInvoice(item).subscribe();
+    
   }
   onCal(disc,quantity,mrp,event){
     event.target.value=(mrp.value-((mrp.value)*(disc.value/100)))*quantity.value;

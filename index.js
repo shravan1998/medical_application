@@ -1,6 +1,6 @@
 const express = require("express");
 const mysql = require("mysql");
-const bodyparser = require("body-parser");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(function(req,res,next){
     next();
 });
 
-app.use('/api/invoice',function(req,res){
+app.post('/api/invoice',function(req,res){
     let sqlinsert = 'INSERT INTO `invoicing`(`master`,`item`,`item_name`,`branch`,`expiry`,`quantity`,`discount`,`sales_rt`,`mrp`'+
                 '`cgst`,`sgst`,`amount`,`dosage`,`doctor_id`,`customer_id`,`payment`,`net_amount`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
@@ -34,8 +34,13 @@ app.use('/api/invoice',function(req,res){
         [req.body.master,req.body.item,req.body.itemname,req.body.branch,req.body.expiry,req.body.quantity,req.body.disc,
         req.body.salesrt,req.body.mrpbox,req.body.cgst,req.body.sgst,req.body.dosage,req.body.doctorid,req.body.customerid,
         req.body.netamount
-        ],(err)=>{
-            
+        ],(err,res)=>{
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log(res);
+            }
         }
     );
 });
