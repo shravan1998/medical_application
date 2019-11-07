@@ -3,31 +3,32 @@
         <div class="card">
                 <div class="card-body">
                   <h3>Sales Invoice</h3>
-                  <form #invoiceForm="ngForm" (ngSubmit)="onSave(invoiceForm.value)" novalidate>
+                  <h4>Discount:</h4>
+                  <form #invoiceForm="ngForm" (ngSubmit)="onSave(invoiceForm.value) " novalidate>
                   
                       <div class="form-group col-md-2">
-                          <h4>Discount:</h4>
+                          
                           <div class="form-check">
-                                <input class="form-check-input" type="radio" name="master" id="exampleRadios1" value="item master" [(ngModel)]="master" >
+                                <input class="form-check-input" type="radio" id="exampleRadios1" value="item master" [(ngModel)]="master" >
                                 <label class="form-check-label" for="exampleRadios1">
                                   Item Master
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="master" id="exampleRadios2" value="customer master" [(ngModel)]="master">
+                                <input class="form-check-input" type="radio"  id="exampleRadios2" value="customer master" [(ngModel)]="master">
                                 <label class="form-check-label" for="exampleRadios2">
                                   Customer Master
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="master" id="exampleRadios3" value="both" [(ngModel)] ="master">
+                                <input class="form-check-input" type="radio" id="exampleRadios3" value="both" [(ngModel)] ="master">
                                 <label class="form-check-label" for="exampleRadios3">
                                   Both
                                 </label>
                               </div>
                               <br>
                             
-                            <input type="number" class="form-control" id="disc" placeholder="Disc%" [(ngModel)]="disc">
+                            <input type="number" class="form-control" id="disc" placeholder="Disc%" [(ngModel)]="disc" #disc1>
                           </div>
                           
                             <div class="form-row">
@@ -37,7 +38,7 @@
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputPassword4">Name</label>
-                                <input type="text" class="form-control" id="name" [(ngModel)]="name">
+                                <input type="text" class="form-control"  [(ngModel)]="itemname">
                               </div>
                             </div>
                             <div class="form-group">
@@ -51,32 +52,35 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="inputCity">Quantity</label>
-                                <input type="number" class="form-control" id="quantity" [(ngModel)]="quantity" value="00">
+                                <input type="number" class="form-control" id="quantity" [(ngModel)]="quantity" value="00" #quantity1>
                               </div>
                               <div class="form-group col-md-4">
                                 <label for="inputAddress2">Sales Rt.</label>
-                                <input type="number" class="form-control" id="salesrt" [(ngModel)]="salesrt" value="00">
+                                <input type="number" class="form-control" id="salesrt" [(ngModel)]="salesrt" value="00" #salesrt1>
                               </div>
                               <div class="form-group col-md-2">
                                 <label for="inputZip">Mrp Box.</label>
-                                <input type="number" class="form-control" id="mrpbox" [(ngModel)]="mrpbox" value="00">
+                                <input type="number" class="form-control" id="mrpbox" [(ngModel)]="mrpbox" value="00" #mrpbox1>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col">
-                                <input type="number" class="form-control" placeholder="CGST" id="cgst" [(ngModel)]="cgst" >
+                                <input type="number" class="form-control" placeholder="CGST" id="cgst" [(ngModel)]="cgst" #cgst1>
                               </div>
                               <div class="col">
-                                <input type="number" class="form-control" placeholder="SGST" id="sgst" [(ngModel)]="sgst">
+                                <input type="number" class="form-control" placeholder="SGST" id="sgst" [(ngModel)]="sgst" #sgst1>
                               </div>
                             </div>
                             <br>
                             <div class="row">
                               <div class="col">
-                                <input type="number" class="form-control" placeholder="Amount" [(ngModel)]="amount" id="amount">
+                                <input type="number" class="form-control" placeholder="Amount" [(ngModel)]="amount" id="amount" (click)="onCal(disc1,quantity1,mrpbox1,$event)" #amount1>
                               </div>
                               <div class="col">
-                                <input type="number" class="form-control" placeholder="Net Amount" [(ngModel)]="netamount" id="net" >
+                                <input type="number" class="form-control" placeholder="Dosage" [(ngModel)]="dosage" id="dosage" >
+                              </div>
+                              <div class="col">
+                                <input type="number" class="form-control" placeholder="Net Amount" [(ngModel)]="netamount" id="netamount" (click)="NetAmount(disc1,quantity1,mrpbox1,cgst1,sgst1,$event)">
                               </div>
                             </div>
                             <br>
@@ -95,19 +99,19 @@
                               <input type="text" class="form-control" id="inputAddress" [(ngModel)]="address">
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="payment" id="exampleRadios1" value="cash" [(ngModel)]="payment">
+                              <input class="form-check-input" type="radio" id="exampleRadios1" value="cash" [(ngModel)]="payment">
                               <label class="form-check-label" for="exampleRadios1">
                                 Cash
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="payment" id="exampleRadios2" value="card" [(ngModel)]="payment">
+                              <input class="form-check-input" type="radio" id="exampleRadios2" value="card" [(ngModel)]="payment">
                               <label class="form-check-label" for="exampleRadios2">
                                 Card
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="payment" id="exampleRadios3" value="epayment" [(ngModel)]="epayment">
+                              <input class="form-check-input" type="radio" id="exampleRadios3" value="epayment" [(ngModel)]="epayment">
                               <label class="form-check-label" for="exampleRadios3">
                                 E-Payment
                               </label>
@@ -119,7 +123,7 @@
                           <form>
                             <div class="form-group col-md-6">
                               <label for="inputPassword4">Name</label>
-                              <input type="text" class="form-control" id="name" [(ngModel)]="name">
+                              <input type="text" class="form-control" [(ngModel)]="itemname">
                             </div>
                             <button type="submit" class="btn btn-success">Alternative</button>
                           </form>
@@ -128,6 +132,7 @@
                 </div>
               </div>
 </div>
+
 
 
         
