@@ -30,11 +30,17 @@ export class SalesInvoiceComponent implements OnInit {
   constructor(private invoiceservice:InvoiceService) { }
 
   ngOnInit() {
-    
+   /* this.invoiceservice.getdata().subscribe((data)=>{
+      
+      this.details=data;
+    });*/
 
   }
   onSave(item){
-    this.invoiceservice.getInvoice(item).subscribe();
+    console.log(item);
+    this.invoiceservice.getInvoice(item).subscribe((data)=>{
+      this.details=data;
+    });
     
   }
   onCal(disc,quantity,mrp,event){
