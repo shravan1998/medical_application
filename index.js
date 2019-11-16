@@ -37,12 +37,14 @@ app.post('/api/invoice',function(req,res){
         sqlinsert,
         [req.body.master,req.body.disc,req.body.item,req.body.itemname,req.body.branch,req.body.expiry,req.body.quantity,
         req.body.salesrt,req.body.mrpbox,req.body.cgst,req.body.sgst,req.body.amount,req.body.dosage, req.body.netamount,req.body.doctorid,req.body.customerid,
-     ,req.body.address,req.body.payment
+     req.body.address,req.body.payment
         ],(err,res)=>{
+            
             if(err){
                 console.log(err);
             }
             else{
+                
                 console.log(res);
             }
         }

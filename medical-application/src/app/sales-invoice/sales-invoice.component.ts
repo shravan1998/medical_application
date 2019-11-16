@@ -24,6 +24,7 @@ export class SalesInvoiceComponent implements OnInit {
   customerid:String;
   payment:String;
   netamount:Number;
+  address:String;
   public details;
   
 
@@ -43,14 +44,20 @@ export class SalesInvoiceComponent implements OnInit {
     });
     
   }
-  onCal(disc,quantity,mrp,event){
+  onCal(disc,quantity,mrp,amount,event){
     event.target.value=(mrp.value-((mrp.value)*(disc.value/100)))*quantity.value;
+    amount.value=event.target.value;
+    this.amount = amount.value;
+    console.log(amount.value);
     
   }
-  NetAmount(disc,quantity,mrp,cgst,sgst,event){
+  NetAmount(disc,quantity,mrp,cgst,sgst,netamount,event){
     event.target.value=Math.round((mrp.value-((mrp.value)*(disc.value/100))+((mrp.value)*(cgst.value/100))
     +(mrp.value)*(sgst.value/100))*quantity.value);
-    
+    netamount.value=event.target.value;
+    this.netamount = netamount.value;
+    console.log(netamount.value);
+
   }
  
 }
