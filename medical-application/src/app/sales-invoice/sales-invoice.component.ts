@@ -28,21 +28,22 @@ export class SalesInvoiceComponent implements OnInit {
   netamount:Number;
   address:String;
   public details;
+  public details1;
   
 
   constructor(private invoiceservice:InvoiceService,private alternativeservice:AlternativeService) { }
 
   ngOnInit() {
-   /*this.invoiceservice.getdata().subscribe((data)=>{
+   this.invoiceservice.getdata().subscribe((data)=>{
       
       this.details=data;
-    });*/
+    });
 
   }
   onSave(item){
     console.log(item);
     this.invoiceservice.getInvoice(item).subscribe((data)=>{
-      this.details=data;
+      this.ngOnInit();
     });
     
   }
@@ -65,7 +66,7 @@ export class SalesInvoiceComponent implements OnInit {
     console.log(item);
     this.alternativeservice.getdata().subscribe((data)=>{
       
-      this.details=data;
+      this.details1=data;
     });
  
   }

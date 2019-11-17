@@ -14,7 +14,7 @@ export class InvoiceService {
     return this.http.post(`${this.url}/invoice`,item);
   }
   
- /* getdata(){
-    return this.http.get(`${this.url}`); 
-  }*/
+  getdata(){
+    return this.http.get(`${this.url}/invoice`); 
+  }
 }
