@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {InvoiceService} from '../invoice.service';
+import {AlternativeService} from '../alternative.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-sales-invoice',
@@ -28,10 +30,10 @@ export class SalesInvoiceComponent implements OnInit {
   public details;
   
 
-  constructor(private invoiceservice:InvoiceService) { }
+  constructor(private invoiceservice:InvoiceService,private alternativeservice:AlternativeService) { }
 
   ngOnInit() {
-   /* this.invoiceservice.getdata().subscribe((data)=>{
+   /*this.invoiceservice.getdata().subscribe((data)=>{
       
       this.details=data;
     });*/
@@ -58,6 +60,14 @@ export class SalesInvoiceComponent implements OnInit {
     this.netamount = netamount.value;
     console.log(netamount.value);
 
+  }
+  Search(item){
+    console.log(item);
+    this.alternativeservice.getdata().subscribe((data)=>{
+      
+      this.details=data;
+    });
+ 
   }
  
 }

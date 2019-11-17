@@ -120,7 +120,7 @@
                             <button type="submit" class="btn btn-primary" >Save</button>&nbsp;&nbsp;
                             
                           </form>
-                          <form>
+                          <form #alternativeForm="ngForm" (ngSubmit)="Search(alternativeForm.value)" novalidate>
                             <div class="form-group col-md-6">
                               <label for="inputPassword4">Name</label>
                               <input type="text" class="form-control" [(ngModel)]="itemname" name="itemname">

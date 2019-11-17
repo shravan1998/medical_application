@@ -38,19 +38,43 @@ app.post('/api/invoice',function(req,res){
         [req.body.master,req.body.disc,req.body.item,req.body.itemname,req.body.branch,req.body.expiry,req.body.quantity,
         req.body.salesrt,req.body.mrpbox,req.body.cgst,req.body.sgst,req.body.amount,req.body.dosage, req.body.netamount,req.body.doctorid,req.body.customerid,
      req.body.address,req.body.payment
-        ],(err,res)=>{
+        ],(err,data)=>{
             
             if(err){
                 console.log(err);
             }
             else{
                 
-                console.log(res);
+                console.log(data);
             }
         }
     );
 });
 
+app.get('/api/invoice',function(req,res){
+    let sqlget= 'SELECT * FROM `invoicing`';
+    connection.query(sqlget,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+app.get('/api/alternative',function(req,res){
+    let sqlget = 'SELECT * FROM `alternative` WHERE `item_name`=?';
+    connection.query(sqlget,req.body.itemname,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
 app.listen(8000,function(){
     console.log("Runs at 8000");
 });
