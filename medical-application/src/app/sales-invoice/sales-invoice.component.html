@@ -120,11 +120,31 @@
                             <button type="submit" class="btn btn-primary" >Save</button>&nbsp;&nbsp;
                             
                           </form>
-                          <form #alternativeForm="ngForm" (ngSubmit)="Search(alternativeForm.value)" novalidate>
-                            <div class="form-group col-md-6">
-                              <label for="inputPassword4">Name</label>
-                              <input type="text" class="form-control" [(ngModel)]="itemname" name="itemname">
-                            </div>
+                          <br>
+                          <table class="table table-striped table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">Discount</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Branch</th>
+                                <th scope="col">Expiry</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Sales rt</th>
+                                <th scope="col">Mrp Box</th>
+                                <th scope="col">CGST</th>
+                                <th scope="col">SGST</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Net Amount</th>
+                                <th scope="col">Dosage</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              
+                            </tbody>
+                          </table>
+                          <form #alternativeForm="ngForm" (ngSubmit)="Search()" novalidate>
+                           
                             <button type="submit" class="btn btn-success">Alternative</button>
                           </form>
                          

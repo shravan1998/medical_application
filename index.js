@@ -64,7 +64,7 @@ app.get('/api/invoice',function(req,res){
     });
 });
 app.get('/api/alternative',function(req,res){
-    let sqlget = 'SELECT * FROM `alternative` WHERE `item_name`=?';
+    let sqlget = 'SELECT * FROM `alternative`';
     connection.query(sqlget,req.body.itemname,(err,data)=>{
         if(err){
             console.log(err);
