@@ -75,6 +75,18 @@ app.get('/api/alternative',function(req,res){
         }
     });
 });
+app.get('/api/debit-note',function(req,res){
+    let sqlget = 'SELECT * FROM `debit_note`';
+    connection.query(sqlget,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
 app.listen(8000,function(){
     console.log("Runs at 8000");
 });
