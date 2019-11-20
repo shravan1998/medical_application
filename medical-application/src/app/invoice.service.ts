@@ -17,7 +17,10 @@ export class InvoiceService {
   getdata(){
     return this.http.get(`${this.url}/invoice`); 
   }
-  getNote(item){
-    return this.http.get(`${this.url}/debit-note`,item);
+  setNote(item){
+    return this.http.post(`${this.url}/debit-note`,item);
+  }
+  getNote(){
+    return this.http.get(`${this.url}/debit-note`);
   }
 }

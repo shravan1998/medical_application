@@ -16,11 +16,14 @@ export class DebitNoteComponent implements OnInit {
   constructor(private invoiceservice:InvoiceService) { }
 
   ngOnInit() {
+    this.invoiceservice.getNote().subscribe((data)=>{
+      this.details=data;
+    });
   }
   getDebit(data){
     console.log(data);
-    this.invoiceservice.getNote(data).subscribe((data)=>{
-      this.details=data;
+    this.invoiceservice.setNote(data).subscribe((data)=>{
+      this.ngOnInit();
     });
   }
 }

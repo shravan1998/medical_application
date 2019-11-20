@@ -1,6 +1,8 @@
 .wrapper{
     display: flex;
     position: relative;
+   
+    
 }
 
 p {
@@ -62,6 +64,3 @@ ul ul a {
     background: black;
 }
 
-.container{
-    padding-left: 40%;
-}

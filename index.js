@@ -64,8 +64,8 @@ app.get('/api/invoice',function(req,res){
     });
 });
 app.get('/api/alternative',function(req,res){
-    let sqlget = 'SELECT * FROM `alternative`';
-    connection.query(sqlget,req.body.itemname,(err,data)=>{
+    let sqlget= 'SELECT * FROM `alternative`';
+    connection.query(sqlget,(err,data)=>{
         if(err){
             console.log(err);
         }
@@ -75,6 +75,20 @@ app.get('/api/alternative',function(req,res){
         }
     });
 });
+app.post('/api/debit-note',function(req,res){
+    let sqlinsert = 'INSERT INTO `debit_note`(`Grp`,`item`,`branch`,`quantity_pack`,`mf`,`exp`,`quantity`,`disc`,`ref_bill`,`ref_bill_dt`,`supplier_name`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)';
+
+    connection.query(sqlinsert,,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+
 app.get('/api/debit-note',function(req,res){
     let sqlget = 'SELECT * FROM `debit_note`';
     connection.query(sqlget,(err,data)=>{

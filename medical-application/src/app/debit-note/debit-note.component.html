@@ -4,13 +4,63 @@
                 <div class="card-body">
                   <h2>Debit Note</h2>
                   <form #debitnoteForm="ngForm" (ngSubmit)="getDebit(debitnoteForm.value)">
-                        <div class="form-row align-items-center">
-                         
-                              <div class="col-auto">
-                                    <button type="submit" class="btn btn-success mb-2">Select</button>
-                                  </div>
-                        </div>
-                      </form>
+                      <div class="form-row">
+                      <div class="form-group col-md-6">
+                    <label for="inputEmail4">Grp</label>
+                    <input type="text" class="form-control" id="inputEmail4" name="grp" [(ngModel)]="grp">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Item</label>
+                    <input type="text" class="form-control" id="inputPassword4" name="item" [(ngModel)]="item">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Branch</label>
+                  <input type="text" class="form-control" id="inputAddress" name="branch" [(ngModel)]="branch">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                  <label for="inputEmail4">Qty/Pack</label>
+                  <input type="number" class="form-control" id="inputEmail4" name="pack" [(ngModel)]="pack">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Manufacture id</label>
+                    <input type="text" class="form-control" id="inputEmail4" name="mf" [(ngModel)]="mf">
+                  </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Exp</label>
+                  <input type="date" class="form-control" id="inputPassword4" name="exp" [(ngModel)]="exp">
+                </div>
+              </div>
+                
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">Qty</label>
+                    <input type="number" class="form-control" id="inputCity" name="qty" [(ngModel)]="qty">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="inputCity">Disc</label>
+                      <input type="number" class="form-control" id="inputCity" name="disc" [(ngModel)]="disc">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Ref Bill</label>
+                    <input type="text" class="form-control" id="inputZip" name="ref" [(ngModel)]="ref">
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                  <label for="inputEmail4">Ref Bill Date</label>
+                  <input type="date" class="form-control" id="inputEmail4" name="refdate" [(ngModel)]="refdate">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Supplier Name</label>
+                  <input type="text" class="form-control" id="inputPassword4" name="supplier" [(ngModel)]="supplier">
+                </div>
+              </div>
+               
+                <button type="submit" class="btn btn-success">Insert</button>
+                </form>
+                <br>
                       <table class="table table-striped table-dark">
                         <thead>
                           <tr>
