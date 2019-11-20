@@ -76,9 +76,12 @@ app.get('/api/alternative',function(req,res){
     });
 });
 app.post('/api/debit-note',function(req,res){
-    let sqlinsert = 'INSERT INTO `debit_note`(`Grp`,`item`,`branch`,`quantity_pack`,`mf`,`exp`,`quantity`,`disc`,`ref_bill`,`ref_bill_dt`,`supplier_name`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)';
+    let sqlinsert = 'INSERT INTO `debit_note`(`Grp`,`item`,`branch`,`quantity_pack`,`mf`,`exp`,`quantity`,`disc`,`ref_bill`,`ref_bill_dt`,`supplier_name`) VALUES(?,?,?,?,?,?,?,?,?,?,?)';
 
-    connection.query(sqlinsert,,(err,data)=>{
+    connection.query(sqlinsert,[
+        req.body.grp,req.body.item,req.body.branch,req.body.pack,req.body.mf,req.body.exp,req.body.qty,req.body.disc,
+        req.body.ref,req.body.refdate,req.body.supplier
+    ],(err,data)=>{
         if(err){
             console.log(err);
         }
