@@ -104,6 +104,36 @@ app.get('/api/debit-note',function(req,res){
         }
     });
 });
+app.post('/api/item',function(req,res){
+    let sqlinsert = 'INSERT INTO `item`(`item_name`,`mrp`,`expiry`) VALUES(?,?,?)';
+
+    connection.query(sqlinsert,[
+        req.body.item,req.body.mrp,req.body.exp
+    ],(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+
+app.get('/api/item',function(req,res){
+    let sqlget = 'SELECT * FROM `item`';
+    connection.query(sqlget,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+
+
 app.listen(8000,function(){
     console.log("Runs at 8000");
 });

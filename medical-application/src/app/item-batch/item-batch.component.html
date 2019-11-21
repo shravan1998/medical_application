@@ -3,28 +3,46 @@
         <div class="card">
                 <div class="card-body">
                   <h2>Item Batch Detail</h2>
-                  <form>
+                  <form #itemForm="ngForm" (ngSubmit)="getItem(itemForm.value)">
                         <div class="form-row align-items-center">
                           <div class="col-auto">
                             
-                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Item">
+                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Item" name="item" [(ngModel)]="item">
                           </div>
                           <div class="col-auto">
                                 
-                                <select class="custom-select mb-2" id="inlineFormCustomSelect">
-                                  <option selected>Mfac.</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
+                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Mrp" name="mrp" [(ngModel)]="mrp">
                                 
                               </div>
+                              <div class="col-auto">
+                                
+                                <input type="date" class="form-control mb-2" id="inlineFormInput" name="exp" [(ngModel)]="exp">       
+                                  </div>
                          
                           <div class="col-auto">
                             <button type="submit" class="btn btn-success mb-2">Display</button>
                           </div>
                         </div>
                       </form>
+                      <table class="table table-dark">
+                        <thead>
+                          <tr >
+                            
+                            <th scope="col">Item</th>
+                            <th scope="col">Mrp</th>
+                            <th scope="col">Expiry</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let i of details">
+                          <tr>
+                            
+                            <td>{{i.item_name}}</td>
+                            <td>{{i.mrp}}</td>
+                            <td>{{i.exp}}</td>
+                          </tr>
+                         
+                        </tbody>
+                      </table>
                 </div>
               </div>
 </div>
