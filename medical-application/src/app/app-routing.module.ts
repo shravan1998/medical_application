@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
-
+import {BillingComponent} from './billing/billing.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {SalesInvoiceComponent} from './sales-invoice/sales-invoice.component';
 import {DebitNoteComponent} from './debit-note/debit-note.component';
@@ -26,6 +26,9 @@ const routes: Routes = [
 },
 {
   path:'dashboard/purchase',component:PurchaseComponent
+},
+{
+  path:'dashboard/purchase/bill',component:BillingComponent
 }
 
 ];

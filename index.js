@@ -133,6 +133,31 @@ app.get('/api/item',function(req,res){
     });
 });
 
+app.get('/api/purchase',function(req,res){
+    let sqlget = 'SELECT *,SUM(`net_amount`) as `total` FROM `invoicing`';
+    connection.query(sqlget,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+app.get('/api/clear',function(req,res){
+    let sqlget = 'DELETE FROM `invoicing`';
+    connection.query(sqlget,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+
 
 app.listen(8000,function(){
     console.log("Runs at 8000");

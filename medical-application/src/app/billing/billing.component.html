@@ -1,0 +1,46 @@
+<div id="billing">
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">PharmaC</span>
+    <button type="button" class="btn btn-info" (click)="printbill()">Print</button>
+    <span>
+       
+
+    </span>
+   
+  </nav>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Item Name</th>
+        <th scope="col">Batch</th>
+        <th scope="col">Expiry</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">MRP</th>
+        <th scope="col">Sales Rt</th>
+        <th scope="col">Discount</th>
+        <th scope="col">MRP</th>
+        <th scope="col">SGST</th>
+        <th scope="col">CGST</th>
+        <th scope="col">Net Amount</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let i of details">
+      <tr>
+        
+        <td>{{i.item_name}}</td>
+        <td>{{i.branch}}</td>
+        <td>{{i.expiry}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.mrp}}</td>
+        <td>{{i.sales_rt}}</td>
+        <td>{{i.disc}}</td>
+        <td>{{i.mrp}}</td>
+        <td>{{i.cgst}}</td>
+        <td>{{i.sgst}}</td>
+        <td>{{i.net_amount}}</td>
+      </tr>
+      <h4>Total:{{i.total}}</h4>
+    </tbody>
+  </table>
+  
+</div>

@@ -11,6 +11,7 @@ import { SalesInvoiceComponent } from './sales-invoice/sales-invoice.component';
 import { DebitNoteComponent } from './debit-note/debit-note.component';
 import { ItemBatchComponent } from './item-batch/item-batch.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { BillingComponent } from './billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PurchaseComponent } from './purchase/purchase.component';
     SalesInvoiceComponent,
     DebitNoteComponent,
     ItemBatchComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PurchaseService} from '../purchase.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-purchase',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./purchase.component.css']
 })
 export class PurchaseComponent implements OnInit {
-
-  constructor() { }
+  public details;
+  constructor(private purchaseservice:PurchaseService) {
+    
+  }
 
   ngOnInit() {
   }
 
+  clear(){
+    this.purchaseservice.clear().subscribe((data)=>{
+      this.details=data;
+    });
+
+
+  
+  }
 }
