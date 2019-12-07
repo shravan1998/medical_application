@@ -10,6 +10,31 @@
                                     &nbsp;
                                     <button type="button" class="btn btn-danger" (click)="clear()">Clear</button>
                                   </div>
+                                  <h4>History</h4>
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Item Name</th>
+                                        <th scope="col">Expiry</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">MRP</th>
+                                       
+                                      </tr>
+                                    </thead>
+                                    <tbody *ngFor="let i of details">
+                                      <tr>
+                                        
+                                        <td>{{i.item}}</td>
+                                        <td>{{i.item_name}}</td>
+                                        <td>{{i.expiry}}</td>
+                                        <td>{{i.quantity}}</td>
+                                        <td>{{i.mrp}}</td>
+                                       
+                                      </tr>
+                                      
+                                    </tbody>
+                                  </table>
                               
                             </div>  
                 </div>

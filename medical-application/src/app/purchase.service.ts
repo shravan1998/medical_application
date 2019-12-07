@@ -15,4 +15,7 @@ export class PurchaseService {
   clear(){
     return this.http.get(`${this.url}/clear`); 
   }
+  history(){
+    return this.http.get(`${this.url}/history`);
+  }
 }

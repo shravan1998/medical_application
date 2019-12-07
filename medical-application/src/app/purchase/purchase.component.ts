@@ -14,6 +14,9 @@ export class PurchaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.purchaseservice.history().subscribe((data)=>{
+      this.details=data;
+    });
   }
 
   clear(){

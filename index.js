@@ -49,6 +49,23 @@ app.post('/api/invoice',function(req,res){
             }
         }
     );
+    let sql2='INSERT INTO `history` VALUES(?,?,?,?,?)';
+    connection.query(
+        sql2,
+        [req.body.item,req.body.itemname,req.body.expiry,req.body.quantity,
+        req.body.mrpbox
+        ],(err,data)=>{
+            
+            if(err){
+                console.log(err);
+            }
+            else{
+                
+                console.log(data);
+            }
+        }
+    );
+
 });
 
 app.get('/api/invoice',function(req,res){
@@ -122,6 +139,18 @@ app.post('/api/item',function(req,res){
 
 app.get('/api/item',function(req,res){
     let sqlget = 'SELECT * FROM `item`';
+    connection.query(sqlget,(err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(data);
+            console.log(data);
+        }
+    });
+});
+app.get('/api/history',function(req,res){
+    let sqlget = 'SELECT * FROM `history`';
     connection.query(sqlget,(err,data)=>{
         if(err){
             console.log(err);
